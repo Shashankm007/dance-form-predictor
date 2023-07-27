@@ -1,0 +1,14 @@
+{% extends "layout.html" %} {% block content %}
+<center>
+    <div class="bg-dark p-4 text-info text-center">
+        <form id="upload" method="post" enctype="multipart/form-data">
+
+            <h4 class="text-white">Select a Dance video to upload:</h4>
+            <input type="file" name="file">
+            <input type="submit" value="Upload video" name="submit" class="btn btn-success btn-block my-2">
+
+        </form>
+    </div>
+</center>
+
+{% endblock %}

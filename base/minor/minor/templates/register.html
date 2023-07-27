@@ -1,0 +1,65 @@
+{% extends "layout.html"%}
+{% block content %}
+
+<div class="container">
+  <form method = 'POST'>
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+      {{ form.name.label('Full Name:') }}
+      {% if form.name.errors %}
+        {{ form.name(class = 'form-control form-control lg is-invalid') }}
+      <div class="invalid-feedback" style='color: red;'>
+        {% for error in form.name.errors %}
+         {{ error }}
+        {% endfor %}
+      </div>
+      {% else %}
+          {{ form.name(class = 'form-control form-control lg ') }}
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.email.label('Email:') }}
+      {% if form.email.errors %}
+        {{ form.email(class = 'form-control form-control lg is-invalid') }}
+      <div class="invalid-feedback" style='color: red;'>
+        {% for error in form.email.errors %}
+        {{ error }}
+        {% endfor %}
+      </div>
+      {% else %}
+          {{ form.email(class = 'form-control form-control lg ') }}
+      {% endif %}
+    </div>
+    <div class="form-group">
+      {{ form.password.label('Password:') }}
+      {% if form.password.errors  %}
+        {{ form.password(class = 'form-control form-control lg is-invalid') }}
+      <div class="invalid-feedback" style='color: red;'>
+        {% for error in form.password.errors %}
+          {{ error }}
+        {% endfor %}
+      </div>
+      {% else %}
+          {{ form.password(class = 'form-control form-control lg ') }}
+      {% endif %}
+
+    </div>
+    <div class="form-group" >
+      {{ form.confirm_password.label('Confirm Password:') }}
+      {% if form.confirm_password.errors %}
+        {{ form.confirm_password(class = 'form-control form-control lg is-invalid') }}
+      <div class="invalid-feedback" style='color: red;'>
+        {% for error in form.confirm_password.errors %}
+            {{ error }}
+        {% endfor %}
+      </div>
+      {% else %}
+          {{ form.confirm_password(class = 'form-control form-control lg ') }}
+      {% endif %}
+
+    </div>
+    {{ form.signup(class='btn btn-primary') }} <a href='{{ url_for('login')}}' > Alreday have an account? </a>
+  </form>
+</div>
+
+{% endblock content %}
